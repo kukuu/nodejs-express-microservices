@@ -31,17 +31,7 @@ Snapshots
 
 https://github.com/kukuu/Microservice-NodeJS/blob/master/microservice-snapshots/1.png
 
-## Applications
 
-1. Swagger, NodeJS, Express Framework https://github.com/kukuu/Microservice-NodeJS/tree/master/microservices 
-
-2. JavaScript and Express, Docker and NGINX - 
-
-https://github.com/kukuu/microservices-nodejs-docker-nginx
-
-3. GraphQL, REACT & REDUX - https://github.com/kukuu/redux-graphQL-relay 
-
-4. Cinema Micro-service : https://github.com/kukuu/cinema-microservice 
 
 ## Challenges to Micro-services
 
@@ -152,41 +142,6 @@ A very good robust and scalable API Gateway must time out calls that exceed the 
 
 For most microservices‑based applications, it makes sense to implement an API Gateway, which acts as a single entry point into a system. The API Gateway is responsible for request routing, composition, and protocol translation. It provides each of the application’s clients with a custom API. The API Gateway can also mask failures in the backend services by returning cached or default data. 
 
-# Containerisation
-
-Source code of any  program cannot fully describe the function of that program without the context it will be compiled and run in. Most unexpected behaviour during deployment comes from build environments being different than expected. To make deployment repeatable, we need to make a program’s context repeatable. That’s where Docker comes in.
-
-Docker essentially allows you to specify a “source code” for a program’s context that can then be “compiled” to an image and run as a container. This means that once we have tested an image we can have high confidence that it will perform equally well in every environment it is deployed to.
-
-Additionally, Docker allows you to specify deploy configurations made up of multiple containers all linked in a private network and DNS that allows services that depend strongly on each other to be deployed and scaled together. 
-
-To be fully context-agnostic, deployment should be able to happen to any host on the network on whatever port the host happens to have free. This presents a challenge: how do services link up when their network locations are fluid? You need a reverse proxy (like nginx) and a way to keep its configuration up to date in a changing service landscape.
-You will need a  Consul to store and  manage service states.
-
-
-#### What a deployment looks like:
-
-	1.	Build Docker image.
-
-	2.	Test that image in isolation.
-
-	3.	Push that image to the in-house image registry.
-
-	4.	Pull all images you need to deploy linked.
-
-	5.	Deploy them to a test environment.
-
-	6.	Run automated tests against the container system.
-
-	7.	Upload service configuration to Consul API (if changed).
-
-	8.	Deploy the containers to all hosts, tagged with the offline colour.
-
-	9.	Wait until they are all responding and passing automated checks.
-
-	10.	Flip environment alias to point at the offline colour.
-
-	11.	The new build is now online.
 
 #### Summary
 
@@ -228,58 +183,3 @@ Cons:
 Containers or Severless
 
 - https://github.com/kukuu/AGILITY/tree/master/white-paper/severlessComputing-vs-containers
-
-
-## Architectural patterns & styles:
-
-There are many recognized architectural patterns and styles, among them:
-
-```
-
-1. Client-server ( 2-tier, 3-tier, n-tier, cloud computing exhibit this style)
-
-2. Layered (or multilayered architecture)
-
-3. Microservices architecture
-
-4. Monolithic application
-
-5. Micro-kernael (COTS/Plugin)
-
-6. Event Driven
-
-7. Publish/Subscribe
-
-```
-A monolithic application describes a single-tiered software application in which the user interface and data access code are combined into a single program from a single platform. A monolithic application is self-contained, and independent from other computing applications.
-
-```
-
-5. Component-based
-
-6. Event Driven  / Implicit invocation
-
-7. Data-centric
-
-```
-### Resources
-
-1. Tier & Layered https://github.com/kukuu/AGILITY/blob/master/white-paper/tier-layer-README.md
-
-2. Microservices - https://github.com/kukuu/AGILITY/blob/master/white-paper/MICRO-SERVICES-oriented%20Architecture.png 
-
-3. SOA 
-
-- https://github.com/kukuu/AGILITY/blob/master/white-paper/SOA-2.png 
-
-- https://github.com/kukuu/AGILITY/blob/master/white-paper/SOA-1.png 
-
-4. Docker - https://www.youtube.com/watch?v=YFl2mCHdv24 
-
-5. Docker Compose with Volumes - https://www.youtube.com/watch?v=Qw9zlE3t8Ko
-
-4. Building Microservices with Node, Docker and Nginx (i) : https://www.youtube.com/watch?v=aWxR05rUoto 
-
-5. Building Microservices with Node, Docker and Nginx (ii)  : https://www.youtube.com/watch?v=QjhJs31h_4k
-
-6. Micro-services, Docker and Kubernetes - https://www.youtube.com/watch?v=1xo-0gCVhTU
